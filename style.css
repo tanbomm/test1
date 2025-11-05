@@ -1,0 +1,203 @@
+/* style.css */
+
+body{
+  margin: 0;
+}
+
+header {
+  text-align: center;
+  /*padding: 20px; 横幅調整*/
+}
+
+h1 a {
+  color: black;          /* 文字色は常に黒 */
+  text-decoration: none; /* 下線を消す */
+  font-size: 40px;
+}
+
+h1 a:hover {
+  color: black;          /* ホバーしても黒のまま */
+  text-decoration: none; /* ホバーしても下線なし */
+}
+
+h2{
+  font-size: 20px;
+  text-align: left;
+  padding-left: 40px;
+}
+h3{
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+h4{
+  font-size: 20px;
+  text-align: center;
+  margin: 0;
+}
+
+p{
+  font-size: 16px;
+  color: #333;
+  font-weight: bold;
+}
+
+.copy{
+  color: white;
+}
+
+
+.clink {
+  display: block;
+  text-align: right; 
+}
+
+.clink a {
+  color: blue;
+  text-decoration: underline;
+}
+
+.clink a:hover {
+  color: darkblue;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 1000;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+nav ul {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 0;
+  list-style: none;
+  margin: 0;
+}
+nav a {
+  text-decoration: none;
+  color: #4a7dab;
+  font-weight: bold;
+}
+
+nav a.highlight {
+  color: #8e4a75;
+}
+
+.table-section {
+  justify-content: center;
+  flex-direction: column;   /* ← これを追加！ */
+  margin: 0 auto;/* ← 下に60pxの空白、中央配置（左右auto） */
+  width: 95%;       /* ← テーブルの横幅に合わせて縮む */
+
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #ffffff;
+  width: 100%;
+  border: none; /* ← table自体にはborderをつけない */   
+  margin: auto; 
+  margin-bottom: 30px;
+}
+
+/* セル共通の枠線と内側の余白 */
+th, td {
+  border: 1px solid #000; /* ← 太さを統一・重複をなくす */
+  padding: 12px;
+  text-align: left;
+}
+
+
+
+/* 最初と最後のセルの角を丸くする */
+tr:first-child th:first-child {
+  border-top-left-radius: 10px;
+}
+tr:first-child th:last-child {
+  border-top-right-radius: 10px;
+}
+tr:last-child td:first-child {
+  border-bottom-left-radius: 10px;
+}
+tr:last-child td:last-child {
+  border-bottom-right-radius: 10px;
+}
+
+
+.title{
+  text-align: center;
+}
+
+.category {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}
+
+.iframe-row {
+  display: flex;
+  align-items: center;       /* ← 縦方向中央揃え */
+  gap: 20px;                /* ← iframeとaの間の余白 */
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 20px;
+  text-align: left;
+
+}
+
+iframe {
+  width: 50%;
+  aspect-ratio: 1 / 1;
+  display: block;
+  margin: 0;                 /* flex内なのでmargin調整不要 */
+
+}
+
+.adress {
+  font-size: 16px;
+  color: #333;
+  line-height: 1.6;
+  font-weight: bold;
+}
+
+.tel {
+  display: inline-block;
+  color: #0077cc;
+  text-decoration: none;
+   /* 電話番号の上に少し余白 */
+}
+
+.tel:hover {
+  text-decoration: underline;
+}
+
+
+footer {
+  background: black;
+  color: white;
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+}
+
+@media (max-width: 600px) {
+  .iframe-row {
+    flex-direction: column;
+    align-items: flex-start; /* 縦に並んでも左揃えに */
+  }
+
+  iframe {
+    width: 100%;
+  }
+
+  .adress {
+    margin-top: 20px; /* iframeの下に余白を入れると◎ */
+  }
+}

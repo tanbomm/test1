@@ -30,13 +30,14 @@ h1 a:hover {
 h2 {
   font-size: 20px;
   text-align: left;
-  padding-left: 40px;
+
 }
 h3 {
-  font-size: 20px;
-  margin-bottom: 5px;
+  font-size: 20px;  
+  text-align: left; /* ← この行を追加 */
+  margin-top: 10px;
+  margin-bottom: 0px;
 }
-
 h4 {
   font-size: 20px;
   text-align: center;
@@ -45,7 +46,6 @@ h4 {
 
 p {
   font-size: 16px;
-  color: #333;
   font-weight: bold;
 }
 
@@ -89,6 +89,8 @@ nav a {
   text-decoration: none;
   color: #4a7dab;
   font-weight: bold;
+  display: inline-block; /* paddingを効かせるため */
+  padding: 10px 0;     /* 上下に10pxの余白を追加 */
 }
 
 
@@ -147,19 +149,16 @@ tr:last-child td:last-child {
   display: flex;
   align-items: center;     /* 縦方向中央揃え */
   gap: 20px;               /* iframeとaの間の余白 */
-  margin-left: 50px;
-  margin-right: 50px;
   margin-bottom: 20px;
   text-align: left;
 }
-
 /* マップ用のiframe指定 */
 .iframe-row iframe {
-  width: 50%;
+  width: 100%;
   aspect-ratio: 1 / 1;
   display: block;
-  margin: 0;
-  border: none; /* 枠線をCSSで指定 */
+  margin: 0; /* ← 1 から 0 に修正 */
+  border: black; /* 枠線をCSSで指定 */
 }
 
 .adress {
@@ -167,6 +166,10 @@ tr:last-child td:last-child {
   color: #333;
   line-height: 1.6;
   font-weight: bold;
+  
+  /* ▼ 以下の2行を再度追加します ▼ */
+  width: 95%;     /* .table-section と幅を合わせる */
+  margin: 0 auto; /* .table-section と同じマージンで中央揃えにする */
 }
 
 .tel {
@@ -193,8 +196,8 @@ footer {
   .iframe-row {
     flex-direction: column;
     align-items: flex-start; /* 縦に並んでも左揃えに */
-    margin-left: 20px;  /* スマホ用に余白を調整 */
-    margin-right: 20px;
+    margin-left: 10px;  /* スマホ用に余白を調整 */
+    margin-right: 10px;
   }
 
   /* スマホのマップiframe指定 */
@@ -203,7 +206,10 @@ footer {
   }
 
   .adress {
-    margin-top: 20px; /* iframeの下に余白を入れると◎ */
+    bottom: 20px;
+  }
+  .mobile-break {
+    display: block; /* block要素として扱い、強制的に改行させる */
   }
 }
 
@@ -220,16 +226,33 @@ iframe.google-form {
   border: none;
 }
 
-@media screen and (max-width: 768px) {
-  p{
-      background-color: black;
-       color:green;
-   }
+main {
+  /* コンテンツの最大幅（これ以上広がらない幅） */
+  max-width: 1000px; 
+  
+  /* コンテンツ全体をブラウザの中央に配置します */
+  margin-left: auto;
+  margin-right: auto;
+  
+  /* スマホ表示の際に、左右に最小限の余白(15px)を確保します */
+  padding-left: 15px; 
+  padding-right: 15px;
 }
 
-@media screen and (max-width: 480px) {
-  p{
-      background-color: black;
-       color:red;
-   }
+.mobile-break {
+  display: none;
+}
+
+/* --- ページごとのスタイル --- */
+
+/* index.html の .iframe-row のマージン */
+#page-index .iframe-row {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+/* access.html の .iframe-row のマージン */
+#page-access .iframe-row {
+  margin-left: 15px;  /* 違う値を指定 */
+  margin-right: 15px; /* 違う値を指定 */
 }

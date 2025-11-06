@@ -75,17 +75,22 @@ nav {
   z-index: 1000;
   border-bottom: 1px solid #ccc;
   margin-bottom: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+  /* padding は削除 */
 }
 
 nav ul {
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */ /* ← 中央揃えを無効化 */
+  justify-content: flex-start; /* ← 左揃えに変更 */
   gap: 20px;
-  padding: 0;
+  padding: 0 10px; /* ← ここで左右の padding を指定 */
   list-style: none;
   margin: 0;
+  
+  /* ▼ 以下3行を追加して横スクロールを有効化 ▼ */
+  flex-wrap: nowrap;     /* 項目を強制的に一列にします */
+  overflow-x: auto;    /* はみ出した場合に横スクロールを許可します */
+  -webkit-overflow-scrolling: touch; /* iOSでのスムーズなスクロール */
 }
 nav a {
   text-decoration: none;

@@ -158,7 +158,7 @@ tr:last-child td:last-child {
   aspect-ratio: 1 / 1;
   display: block;
   margin: 0; /* ← 1 から 0 に修正 */
-  border: black; /* 枠線をCSSで指定 */
+  border: 1px solid black; /* 枠線をCSSで指定 */
 }
 
 .adress {

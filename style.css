@@ -1,6 +1,6 @@
 /* style.css */
 
-body{
+body {
   margin: 0;
 }
 
@@ -20,36 +20,36 @@ h1 a:hover {
   text-decoration: none; /* ホバーしても下線なし */
 }
 
-h2{
+h2 {
   font-size: 20px;
   text-align: left;
   padding-left: 40px;
 }
-h3{
+h3 {
   font-size: 20px;
   margin-bottom: 5px;
 }
 
-h4{
+h4 {
   font-size: 20px;
   text-align: center;
   margin: 0;
 }
 
-p{
+p {
   font-size: 16px;
   color: #333;
   font-weight: bold;
 }
 
-.copy{
+.copy {
   color: white;
 }
 
 
 .clink {
   display: block;
-  text-align: right; 
+  text-align: right;
 }
 
 .clink a {
@@ -84,16 +84,12 @@ nav a {
   font-weight: bold;
 }
 
-nav a.highlight {
-  color: #8e4a75;
-}
 
 .table-section {
   justify-content: center;
-  flex-direction: column;   /* ← これを追加！ */
-  margin: 0 auto;/* ← 下に60pxの空白、中央配置（左右auto） */
-  width: 95%;       /* ← テーブルの横幅に合わせて縮む */
-
+  flex-direction: column;
+  margin: 0 auto; /* 中央配置 */
+  width: 95%;     /* 横幅 */
 }
 
 table {
@@ -103,19 +99,17 @@ table {
   overflow: hidden;
   background: #ffffff;
   width: 100%;
-  border: none; /* ← table自体にはborderをつけない */   
-  margin: auto; 
+  border: none; /* table自体にはborderをつけない */
+  margin: auto;
   margin-bottom: 30px;
 }
 
 /* セル共通の枠線と内側の余白 */
 th, td {
-  border: 1px solid #000; /* ← 太さを統一・重複をなくす */
+  border: 1px solid #000; /* 太さを統一・重複をなくす */
   padding: 12px;
   text-align: left;
 }
-
-
 
 /* 最初と最後のセルの角を丸くする */
 tr:first-child th:first-child {
@@ -132,7 +126,7 @@ tr:last-child td:last-child {
 }
 
 
-.title{
+.title {
   text-align: center;
 }
 
@@ -141,23 +135,24 @@ tr:last-child td:last-child {
   font-weight: bold;
 }
 
+/* --- ここからGoogleマップのスタイル --- */
 .iframe-row {
   display: flex;
-  align-items: center;       /* ← 縦方向中央揃え */
-  gap: 20px;                /* ← iframeとaの間の余白 */
+  align-items: center;     /* 縦方向中央揃え */
+  gap: 20px;               /* iframeとaの間の余白 */
   margin-left: 50px;
   margin-right: 50px;
   margin-bottom: 20px;
   text-align: left;
-
 }
 
-iframe {
+/* マップ用のiframe指定 */
+.iframe-row iframe {
   width: 50%;
   aspect-ratio: 1 / 1;
   display: block;
-  margin: 0;                 /* flex内なのでmargin調整不要 */
-
+  margin: 0;
+  border: none; /* 枠線をCSSで指定 */
 }
 
 .adress {
@@ -171,13 +166,11 @@ iframe {
   display: inline-block;
   color: #0077cc;
   text-decoration: none;
-   /* 電話番号の上に少し余白 */
 }
 
 .tel:hover {
   text-decoration: underline;
 }
-
 
 footer {
   background: black;
@@ -187,17 +180,48 @@ footer {
   padding: 20px;
 }
 
+/* --- ここからスマホ用のスタイル --- */
 @media (max-width: 600px) {
   .iframe-row {
     flex-direction: column;
     align-items: flex-start; /* 縦に並んでも左揃えに */
+    margin-left: 20px;  /* スマホ用に余白を調整 */
+    margin-right: 20px;
   }
 
-  iframe {
+  /* スマホのマップiframe指定 */
+  .iframe-row iframe {
     width: 100%;
   }
 
   .adress {
     margin-top: 20px; /* iframeの下に余白を入れると◎ */
   }
+}
+
+/* --- お問い合わせフォーム（Google Form） --- */
+/* (form.html のみで使われる) */
+
+/* ↓ main iframe を「iframe.google-form」に変更 */
+iframe.google-form {
+  width: 100%;
+  max-width: 640px;
+  height: 1000px;
+  display: block;
+  margin: 20px auto;
+  border: none;
+}
+
+@media screen and (max-width: 768px) {
+  p{
+      background-color: black;
+       color:green;
+   }
+}
+
+@media screen and (max-width: 480px) {
+  p{
+      background-color: black;
+       color:red;
+   }
 }

@@ -80,17 +80,13 @@ nav {
 
 nav ul {
   display: flex;
-  /* justify-content: center; */ /* ← 中央揃えを無効化 */
-  justify-content: flex-start; /* ← 左揃えに変更 */
+  justify-content: center; /* ← 中央揃えに戻す */
   gap: 20px;
-  padding: 0 10px; /* ← ここで左右の padding を指定 */
+  padding: 0; /* ← padding は削除 */
   list-style: none;
   margin: 0;
-  
-  /* ▼ 以下3行を追加して横スクロールを有効化 ▼ */
-  flex-wrap: nowrap;     /* 項目を強制的に一列にします */
-  overflow-x: auto;    /* はみ出した場合に横スクロールを許可します */
-  -webkit-overflow-scrolling: touch; /* iOSでのスムーズなスクロール */
+  /* text-align: center; は削除 */
+  /* 横スクロール関連の指定はすべて削除 */
 }
 nav a {
   text-decoration: none;
@@ -217,6 +213,13 @@ footer {
   }
   .mobile-break {
     display: block; /* block要素として扱い、強制的に改行させる */
+  }
+  nav ul {
+    justify-content: flex-start; /* スマホでは左揃え */
+    padding: 0 10px;         /* スマホでは左右にpadding */
+    flex-wrap: nowrap;         /* スマホでは改行しない */
+    overflow-x: auto;        /* スマホでは横スクロール許可 */
+    -webkit-overflow-scrolling: touch; 
   }
 }
 
